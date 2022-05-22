@@ -18,3 +18,10 @@ shape = SubResource( 2 )
 [node name="sprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "walk"
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2( 670, 0 )
+current = true
+limit_left = 0
+limit_top = 0
+limit_bottom = 0
