@@ -14,11 +14,13 @@ func _physics_process(delta: float) -> void:
   velocity = move_and_slide(velocity, Vector2(0, -1))
   
   if is_on_floor():
+    $sprite.play('walk')
     if jump:
       velocity.y = -800
+  else:
+    $sprite.play('jump')
   
   jump = false
-
 
 func _input(event):
   if event is InputEventScreenTouch:
