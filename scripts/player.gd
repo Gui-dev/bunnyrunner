@@ -22,9 +22,10 @@ func _physics_process(delta: float) -> void:
     $sprite.play('walk')
     if jump:
       velocity.y = -1000
+      $jump.play()
   else:
     $sprite.play('jump')
-    if jump_release:
+    if jump_release and velocity.y < 0:
       velocity.y *= 0.3
   
   was_on_floor = is_on_floor()
