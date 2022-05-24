@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://resources/player_skin_pink.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://resources/player_skin_brown.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://scripts/player.gd" type="Script" id=2]
+[ext_resource path="res://sprites/Particles/smoke.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 62.0
@@ -62,6 +63,86 @@ tracks/1/keys = {
 "values": [ Vector2( 1.2562, 0.748756 ), Vector2( 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 103 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "dust"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 103 ), Vector2( 0, 103 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 0.258816, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.2 ),
+"transitions": PoolRealArray( 1, 0.164939, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [node name="player" type="KinematicBody2D"]
 collision_mask = 2
 script = ExtResource( 2 )
@@ -84,3 +165,18 @@ limit_bottom = 0
 [node name="animation_landed" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 3 )
 anims/boing = SubResource( 4 )
+
+[node name="dust" type="Node2D" parent="."]
+position = Vector2( 0, 103 )
+
+[node name="Smoke" type="Sprite" parent="dust"]
+position = Vector2( 70, 7 )
+texture = ExtResource( 3 )
+
+[node name="Smoke2" type="Sprite" parent="dust"]
+position = Vector2( -71, 7 )
+texture = ExtResource( 3 )
+
+[node name="animation_dust" type="AnimationPlayer" parent="dust"]
+anims/RESET = SubResource( 5 )
+anims/dust = SubResource( 6 )
