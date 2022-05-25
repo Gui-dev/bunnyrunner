@@ -5,6 +5,7 @@ var speed_direction_x = 500
 var velocity = Vector2(0, 0)
 var jump = false
 var jump_release = false
+var controled_jump = false
 var was_on_floor = false
 
 func _ready() -> void:
@@ -21,11 +22,11 @@ func _physics_process(delta: float) -> void:
       $dust/animation_dust.play('dust')
     $sprite.play('walk')
     if jump:
-      velocity.y = -1000
+      _jump(1000, true)
       $jump.play()
   else:
     $sprite.play('jump')
-    if jump_release and velocity.y < 0:
+    if jump_release and velocity.y < 0 and controled_jump:
       velocity.y *= 0.3
   
   was_on_floor = is_on_floor()
@@ -38,3 +39,7 @@ func _input(event):
       jump = true
     else:
       jump_release = true
+
+func _jump(force: int, controled: bool) -> void:
+  velocity.y = -force
+  controled_jump = controled
