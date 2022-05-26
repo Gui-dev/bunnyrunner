@@ -31,10 +31,10 @@ __meta__ = {
 
 [node name="sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
-animation = "action"
+animation = "idle"
 
 [node name="shape" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 19 )
+position = Vector2( 1, -32 )
 shape = SubResource( 6 )
 
 [node name="action" type="AudioStreamPlayer" parent="."]
