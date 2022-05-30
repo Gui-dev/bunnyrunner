@@ -12,6 +12,7 @@ func _on_head_body_entered(body: Node) -> void:
   $animation.play('destroy')
   yield($animation, 'animation_finished')
   queue_free()
+  
 
 
 func _on_body_body_entered(body: Node) -> void:
