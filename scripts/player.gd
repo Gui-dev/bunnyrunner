@@ -13,6 +13,7 @@ onready var layer = collision_layer
 
 enum {IDLE, RUNNING, FLYING, DEAD}
 var status = RUNNING
+var display_size = ProjectSettings.get_setting('display/window/size/height')
 
 func _ready() -> void:
   set_process_input(true)
@@ -22,6 +23,10 @@ func _physics_process(delta: float) -> void:
     running(delta)
   elif status == DEAD:
     dead(delta)
+  
+  if status != DEAD:
+    if position.y > display_size:
+      killed()
   
   jump = false
   jump_release = false
