@@ -16,4 +16,4 @@ func _on_head_body_entered(body: Node) -> void:
 
 
 func _on_body_body_entered(body: Node) -> void:
-  print('BODY: ', body)
+  body.killed()
