@@ -8,10 +8,25 @@ var jump_release = false
 var controled_jump = false
 var was_on_floor = false
 
+onready var mask = collision_mask
+onready var layer = collision_layer
+
+enum {IDLE, RUNNING, FLYING, DEAD}
+var status = RUNNING
+
 func _ready() -> void:
   set_process_input(true)
 
 func _physics_process(delta: float) -> void:
+  if status == RUNNING:
+    running(delta)
+  elif status == DEAD:
+    dead(delta)
+  
+  jump = false
+  jump_release = false
+
+func running(delta: float) -> void:
   velocity.y += GRAVITY * delta
   velocity.x = speed_direction_x
   velocity = move_and_slide(velocity, Vector2(0, -1))
@@ -30,8 +45,6 @@ func _physics_process(delta: float) -> void:
       velocity.y *= 0.3
   
   was_on_floor = is_on_floor()
-  jump = false
-  jump_release = false
 
 func _input(event):
   if event is InputEventScreenTouch:
@@ -43,3 +56,16 @@ func _input(event):
 func _jump(force: int, controled: bool) -> void:
   velocity.y = -force
   controled_jump = controled
+
+func killed() -> void:
+  if status != DEAD:
+    status = DEAD
+    mask = 0
+    layer = 0
+    velocity = Vector2(0, -1000)
+    $dead.play()
+
+func dead(delta: float) -> void:
+  $sprite.play('hurt')
+  translate((velocity * delta))
+  velocity.y += GRAVITY * delta
