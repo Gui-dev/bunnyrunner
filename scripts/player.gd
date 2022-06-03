@@ -21,6 +21,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
   if status == RUNNING:
     running(delta)
+  elif status == FLYING:
+    flying(delta)
   elif status == DEAD:
     dead(delta)
   
@@ -74,3 +76,19 @@ func dead(delta: float) -> void:
   $sprite.play('hurt')
   translate((velocity * delta))
   velocity.y += GRAVITY * delta
+
+func fly() -> void:
+  $sprite.play('jump')
+  _jump(400, false)
+  status = FLYING
+  $wings.visible = true
+  
+func flying(delta: float) -> void:
+  velocity.y += GRAVITY * delta
+  velocity.x = speed_direction_x
+  velocity = move_and_slide(velocity, Vector2(0, -1))
+  
+  if jump:
+    $wings/animation.play('flap')
+    _jump(400, false)
+    $flap.play()
