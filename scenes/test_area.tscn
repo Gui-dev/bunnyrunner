@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/coil.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://sprites/Environment/ground_cake.png" type="Texture" id=4]
 [ext_resource path="res://scripts/big_platform.gd" type="Script" id=5]
 [ext_resource path="res://scenes/wingman.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sprites/Items/powerup_wings.png" type="Texture" id=7]
+[ext_resource path="res://scripts/fly_powerup.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 626, 35.875 )
@@ -15,6 +17,9 @@ extents = Vector2( 282, 35.875 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 177, 35.875 )
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 29.1548
 
 [node name="test_area" type="Node2D"]
 
@@ -92,3 +97,20 @@ texture = ExtResource( 4 )
 
 [node name="wingman" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1030, 598 )
+
+[node name="fly_powerup" type="Area2D" parent="."]
+position = Vector2( 595, 690 )
+collision_layer = 0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="sprite" type="Sprite" parent="fly_powerup"]
+texture = ExtResource( 7 )
+
+[node name="shape" type="CollisionShape2D" parent="fly_powerup"]
+shape = SubResource( 5 )
+one_way_collision = true
+
+[connection signal="body_entered" from="fly_powerup" to="fly_powerup" method="_on_fly_powerup_body_entered"]
