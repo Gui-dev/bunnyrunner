@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/coil.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://sprites/Items/powerup_wings.png" type="Texture" id=7]
 [ext_resource path="res://scripts/fly_powerup.gd" type="Script" id=8]
 [ext_resource path="res://scenes/parallax_blue.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scripts/parallax.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 626, 35.875 )
@@ -115,5 +116,9 @@ shape = SubResource( 5 )
 one_way_collision = true
 
 [node name="parallax" parent="." instance=ExtResource( 9 )]
+script = ExtResource( 10 )
+modulate_layer_1 = Color( 0.113725, 0.952941, 0.894118, 1 )
+modulate_layer_3 = Color( 0.545098, 0.960784, 0.458824, 1 )
+modulate_layer_4 = Color( 0.133333, 0.776471, 0.0980392, 1 )
 
 [connection signal="body_entered" from="fly_powerup" to="fly_powerup" method="_on_fly_powerup_body_entered"]
