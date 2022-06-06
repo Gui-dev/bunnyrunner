@@ -54,7 +54,7 @@ func running(delta: float) -> void:
   was_on_floor = is_on_floor()
 
 func _input(event):
-  if event is InputEventScreenTouch:
+  if event is InputEventScreenTouch or event.is_action('jump'):
     if event.pressed:
       jump = true
     else:
