@@ -6,14 +6,12 @@
 [ext_resource path="res://sprites/Environment/ground_cake.png" type="Texture" id=4]
 [ext_resource path="res://scripts/big_platform.gd" type="Script" id=5]
 [ext_resource path="res://scenes/wingman.tscn" type="PackedScene" id=6]
-[ext_resource path="res://sprites/Items/powerup_wings.png" type="Texture" id=7]
-[ext_resource path="res://scripts/fly_powerup.gd" type="Script" id=8]
+[ext_resource path="res://scenes/fly_powerup.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ui/grey_panel.png" type="Texture" id=8]
 [ext_resource path="res://scenes/parallax_blue.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scripts/parallax.gd" type="Script" id=10]
 [ext_resource path="res://scenes/carrot.tscn" type="PackedScene" id=11]
-
-[sub_resource type="CircleShape2D" id=5]
-radius = 29.1548
+[ext_resource path="res://ui/blue_button00.png" type="Texture" id=12]
 
 [node name="test_area" type="Node2D"]
 
@@ -161,25 +159,13 @@ position = Vector2( 1361, 168 )
 position = Vector2( 2106, 210 )
 
 [node name="coin7" parent="." instance=ExtResource( 3 )]
-position = Vector2( 3275, 623 )
+position = Vector2( 2832, 361 )
 
 [node name="wingman" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2834, 467 )
 
-[node name="fly_powerup" type="Area2D" parent="."]
-position = Vector2( 3906, 528 )
-collision_layer = 0
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="sprite" type="Sprite" parent="fly_powerup"]
-texture = ExtResource( 7 )
-
-[node name="shape" type="CollisionShape2D" parent="fly_powerup"]
-shape = SubResource( 5 )
-one_way_collision = true
+[node name="fly_powerup" parent="." instance=ExtResource( 7 )]
+position = Vector2( 3364, 516 )
 
 [node name="parallax" parent="." instance=ExtResource( 9 )]
 script = ExtResource( 10 )
@@ -188,5 +174,28 @@ modulate_layer_3 = Color( 0.545098, 0.960784, 0.458824, 1 )
 modulate_layer_4 = Color( 0.133333, 0.776471, 0.0980392, 1 )
 
 [node name="carrot" parent="." instance=ExtResource( 11 )]
+position = Vector2( 3899, 584 )
 
-[connection signal="body_entered" from="fly_powerup" to="fly_powerup" method="_on_fly_powerup_body_entered"]
+[node name="power_up_bar" type="Node2D" parent="."]
+
+[node name="base" type="NinePatchRect" parent="power_up_bar"]
+margin_left = 149.0
+margin_top = 59.0
+margin_right = 322.0
+margin_bottom = 83.0
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 100, 100 )
+patch_margin_left = 3
+patch_margin_top = 10
+patch_margin_right = 5
+patch_margin_bottom = 4
+
+[node name="bar" type="NinePatchRect" parent="power_up_bar"]
+margin_left = 152.0
+margin_top = 61.0
+margin_right = 318.0
+margin_bottom = 81.0
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 187.25, 45.25 )
+patch_margin_left = 4
+patch_margin_top = 5
