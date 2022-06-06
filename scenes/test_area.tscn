@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/coil.tscn" type="PackedScene" id=2]
@@ -10,56 +10,152 @@
 [ext_resource path="res://scripts/fly_powerup.gd" type="Script" id=8]
 [ext_resource path="res://scenes/parallax_blue.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scripts/parallax.gd" type="Script" id=10]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 626, 35.875 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 282, 35.875 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 177, 35.875 )
+[ext_resource path="res://scenes/carrot.tscn" type="PackedScene" id=11]
 
 [sub_resource type="CircleShape2D" id=5]
 radius = 29.1548
 
 [node name="test_area" type="Node2D"]
 
+[node name="platforms" type="Node2D" parent="."]
+
+[node name="big_platform2" type="StaticBody2D" parent="platforms"]
+position = Vector2( 1330, 570 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="poly" type="CollisionPolygon2D" parent="platforms/big_platform2"]
+polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45, 191, -34, 191, -13, 166, 37 )
+
+[node name="sprite" type="Sprite" parent="platforms/big_platform2"]
+texture = ExtResource( 4 )
+
+[node name="big_platform6" type="StaticBody2D" parent="platforms"]
+position = Vector2( 2119, 565 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="poly" type="CollisionPolygon2D" parent="platforms/big_platform6"]
+polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45, 191, -34, 191, -13, 166, 37 )
+
+[node name="sprite" type="Sprite" parent="platforms/big_platform6"]
+texture = ExtResource( 4 )
+
+[node name="big_platform7" type="StaticBody2D" parent="platforms"]
+position = Vector2( 2840, 716 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="poly" type="CollisionPolygon2D" parent="platforms/big_platform7"]
+polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45, 191, -34, 191, -13, 166, 37 )
+
+[node name="sprite" type="Sprite" parent="platforms/big_platform7"]
+texture = ExtResource( 4 )
+
+[node name="big_platform5" type="StaticBody2D" parent="platforms"]
+position = Vector2( 603, 787 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="poly" type="CollisionPolygon2D" parent="platforms/big_platform5"]
+polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45, 191, -34, 191, -13, 166, 37 )
+
+[node name="sprite" type="Sprite" parent="platforms/big_platform5"]
+texture = ExtResource( 4 )
+
+[node name="big_platform9" type="StaticBody2D" parent="platforms"]
+position = Vector2( 982, 789 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="poly" type="CollisionPolygon2D" parent="platforms/big_platform9"]
+polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45, 191, -34, 191, -13, 166, 37 )
+
+[node name="sprite" type="Sprite" parent="platforms/big_platform9"]
+texture = ExtResource( 4 )
+
+[node name="big_platform3" type="StaticBody2D" parent="platforms"]
+position = Vector2( 3354, 718 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="poly" type="CollisionPolygon2D" parent="platforms/big_platform3"]
+polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45, 191, -34, 191, -13, 166, 37 )
+
+[node name="sprite" type="Sprite" parent="platforms/big_platform3"]
+texture = ExtResource( 4 )
+
+[node name="big_platform8" type="StaticBody2D" parent="platforms"]
+position = Vector2( 3909, 715 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="poly" type="CollisionPolygon2D" parent="platforms/big_platform8"]
+polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45, 191, -34, 191, -13, 166, 37 )
+
+[node name="sprite" type="Sprite" parent="platforms/big_platform8"]
+texture = ExtResource( 4 )
+
+[node name="big_platform4" type="StaticBody2D" parent="platforms"]
+position = Vector2( 221, 787 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="poly" type="CollisionPolygon2D" parent="platforms/big_platform4"]
+polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45, 191, -34, 191, -13, 166, 37 )
+
+[node name="sprite" type="Sprite" parent="platforms/big_platform4"]
+texture = ExtResource( 4 )
+
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 159, 307 )
-
-[node name="floor" type="StaticBody2D" parent="."]
-collision_layer = 0
-
-[node name="shape" type="CollisionShape2D" parent="floor"]
-position = Vector2( 630, 789 )
-shape = SubResource( 1 )
-
-[node name="shape3" type="CollisionShape2D" parent="floor"]
-position = Vector2( 2221, 563 )
-shape = SubResource( 3 )
-
-[node name="shape4" type="CollisionShape2D" parent="floor"]
-position = Vector2( 2847, 719 )
-shape = SubResource( 4 )
-
-[node name="coil2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1367, 611 )
+position = Vector2( 99, 642 )
 
 [node name="coil4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1367, 611 )
+position = Vector2( 1226, 462 )
 
 [node name="coil3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2136, 476 )
 
 [node name="coin3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 748, 712 )
+position = Vector2( 649, 637 )
 
 [node name="coin4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1218, 484 )
+position = Vector2( 1256, 347 )
 
 [node name="coin5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1418, 331 )
+position = Vector2( 1361, 168 )
 
 [node name="coin6" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2106, 210 )
@@ -67,41 +163,11 @@ position = Vector2( 2106, 210 )
 [node name="coin7" parent="." instance=ExtResource( 3 )]
 position = Vector2( 3275, 623 )
 
-[node name="big_platform3" type="StaticBody2D" parent="."]
-position = Vector2( 3276, 715 )
-collision_layer = 2
-collision_mask = 0
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="poly" type="CollisionPolygon2D" parent="big_platform3"]
-polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45, 191, -34, 191, -13, 166, 37 )
-
-[node name="sprite" type="Sprite" parent="big_platform3"]
-texture = ExtResource( 4 )
-
-[node name="big_platform2" type="StaticBody2D" parent="."]
-position = Vector2( 1466, 714 )
-collision_layer = 2
-collision_mask = 0
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="poly" type="CollisionPolygon2D" parent="big_platform2"]
-polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45, 191, -34, 191, -13, 166, 37 )
-
-[node name="sprite" type="Sprite" parent="big_platform2"]
-texture = ExtResource( 4 )
-
 [node name="wingman" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1030, 598 )
+position = Vector2( 2834, 467 )
 
 [node name="fly_powerup" type="Area2D" parent="."]
-position = Vector2( 595, 690 )
+position = Vector2( 3906, 528 )
 collision_layer = 0
 script = ExtResource( 8 )
 __meta__ = {
@@ -120,5 +186,7 @@ script = ExtResource( 10 )
 modulate_layer_1 = Color( 0.113725, 0.952941, 0.894118, 1 )
 modulate_layer_3 = Color( 0.545098, 0.960784, 0.458824, 1 )
 modulate_layer_4 = Color( 0.133333, 0.776471, 0.0980392, 1 )
+
+[node name="carrot" parent="." instance=ExtResource( 11 )]
 
 [connection signal="body_entered" from="fly_powerup" to="fly_powerup" method="_on_fly_powerup_body_entered"]
