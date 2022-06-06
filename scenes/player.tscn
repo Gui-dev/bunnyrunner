@@ -227,7 +227,7 @@ anims/flap = SubResource( 9 )
 
 [node name="sprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
-animation = "walk"
+animation = "idle"
 
 [node name="shape" type="CollisionShape2D" parent="."]
 position = Vector2( 0.5, 16.5 )
