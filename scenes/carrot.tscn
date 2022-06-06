@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/carrot.gd" type="Script" id=1]
+[ext_resource path="res://sprites/Items/carrot.png" type="Texture" id=2]
+
+[node name="carrot" type="Area2D"]
+collision_layer = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Carrot" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="polygo" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -3, -33, 35, 16, 37, 33, 26, 35, -7, 11, -39, -16, -36, -30 )
+
+[connection signal="body_entered" from="." to="." method="_on_carrot_body_entered"]
