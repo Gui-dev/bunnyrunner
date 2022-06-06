@@ -11,7 +11,7 @@ var was_on_floor = false
 onready var mask = collision_mask
 onready var layer = collision_layer
 
-enum {IDLE, RUNNING, FLYING, DEAD}
+enum {IDLE, RUNNING, FLYING, DEAD, VICTORY}
 var status = RUNNING
 var display_size = ProjectSettings.get_setting('display/window/size/height')
 
@@ -92,3 +92,7 @@ func flying(delta: float) -> void:
     $wings/animation.play('flap')
     _jump(400, false)
     $flap.play()
+
+func victory() -> void:
+  $sprite.play('victory')
+  status = VICTORY
