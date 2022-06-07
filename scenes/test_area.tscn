@@ -1,9 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/coil.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/coin.tscn" type="PackedScene" id=3]
-[ext_resource path="res://sprites/Environment/ground_cake.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Environment/ground_grass.png" type="Texture" id=4]
 [ext_resource path="res://scripts/big_platform.gd" type="Script" id=5]
 [ext_resource path="res://scenes/wingman.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/fly_powerup.tscn" type="PackedScene" id=7]
@@ -12,19 +12,21 @@
 [ext_resource path="res://scripts/parallax.gd" type="Script" id=10]
 [ext_resource path="res://scenes/carrot.tscn" type="PackedScene" id=11]
 [ext_resource path="res://ui/blue_button00.png" type="Texture" id=12]
+[ext_resource path="res://scripts/power_up_bar.gd" type="Script" id=13]
 
 [node name="test_area" type="Node2D"]
 
 [node name="platforms" type="Node2D" parent="."]
 
 [node name="big_platform2" type="StaticBody2D" parent="platforms"]
-position = Vector2( 1330, 570 )
+position = Vector2( 1508, 705 )
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
+texture = 1
 
 [node name="poly" type="CollisionPolygon2D" parent="platforms/big_platform2"]
 polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45, 191, -34, 191, -13, 166, 37 )
@@ -33,13 +35,14 @@ polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45,
 texture = ExtResource( 4 )
 
 [node name="big_platform6" type="StaticBody2D" parent="platforms"]
-position = Vector2( 2119, 565 )
+position = Vector2( 2580, 874 )
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
+texture = 1
 
 [node name="poly" type="CollisionPolygon2D" parent="platforms/big_platform6"]
 polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45, 191, -34, 191, -13, 166, 37 )
@@ -48,13 +51,14 @@ polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45,
 texture = ExtResource( 4 )
 
 [node name="big_platform7" type="StaticBody2D" parent="platforms"]
-position = Vector2( 2840, 716 )
+position = Vector2( 3112, 716 )
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
+texture = 1
 
 [node name="poly" type="CollisionPolygon2D" parent="platforms/big_platform7"]
 polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45, 191, -34, 191, -13, 166, 37 )
@@ -70,6 +74,7 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
+texture = 1
 
 [node name="poly" type="CollisionPolygon2D" parent="platforms/big_platform5"]
 polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45, 191, -34, 191, -13, 166, 37 )
@@ -85,6 +90,7 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
+texture = 1
 
 [node name="poly" type="CollisionPolygon2D" parent="platforms/big_platform9"]
 polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45, 191, -34, 191, -13, 166, 37 )
@@ -93,13 +99,14 @@ polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45,
 texture = ExtResource( 4 )
 
 [node name="big_platform3" type="StaticBody2D" parent="platforms"]
-position = Vector2( 3354, 718 )
+position = Vector2( 3626, 718 )
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
+texture = 1
 
 [node name="poly" type="CollisionPolygon2D" parent="platforms/big_platform3"]
 polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45, 191, -34, 191, -13, 166, 37 )
@@ -108,13 +115,14 @@ polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45,
 texture = ExtResource( 4 )
 
 [node name="big_platform8" type="StaticBody2D" parent="platforms"]
-position = Vector2( 3909, 715 )
+position = Vector2( 4181, 715 )
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
+texture = 1
 
 [node name="poly" type="CollisionPolygon2D" parent="platforms/big_platform8"]
 polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45, 191, -34, 191, -13, 166, 37 )
@@ -130,6 +138,7 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
+texture = 1
 
 [node name="poly" type="CollisionPolygon2D" parent="platforms/big_platform4"]
 polygon = PoolVector2Array( -162, 48, -190, -11, -190, -38, -176, -47, 178, -45, 191, -34, 191, -13, 166, 37 )
@@ -141,31 +150,31 @@ texture = ExtResource( 4 )
 position = Vector2( 99, 642 )
 
 [node name="coil4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1226, 462 )
+position = Vector2( 1512, 604 )
 
 [node name="coil3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2136, 476 )
+position = Vector2( 2597, 774 )
 
 [node name="coin3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 649, 637 )
 
 [node name="coin4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1256, 347 )
+position = Vector2( 1536, 405 )
 
 [node name="coin5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1361, 168 )
+position = Vector2( 1641, 226 )
 
 [node name="coin6" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2106, 210 )
+position = Vector2( 2612, 519 )
 
 [node name="coin7" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2832, 361 )
+position = Vector2( 3104, 361 )
 
 [node name="wingman" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2834, 467 )
+position = Vector2( 3106, 467 )
 
 [node name="fly_powerup" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3364, 516 )
+position = Vector2( 3636, 516 )
 
 [node name="parallax" parent="." instance=ExtResource( 9 )]
 script = ExtResource( 10 )
@@ -174,15 +183,26 @@ modulate_layer_3 = Color( 0.545098, 0.960784, 0.458824, 1 )
 modulate_layer_4 = Color( 0.133333, 0.776471, 0.0980392, 1 )
 
 [node name="carrot" parent="." instance=ExtResource( 11 )]
-position = Vector2( 3899, 584 )
+position = Vector2( 4171, 584 )
 
-[node name="power_up_bar" type="Node2D" parent="."]
+[node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="base" type="NinePatchRect" parent="power_up_bar"]
-margin_left = 149.0
-margin_top = 59.0
-margin_right = 322.0
-margin_bottom = 83.0
+[node name="power_up_bar" type="Node2D" parent="HUD" groups=["power_up_bar"]]
+position = Vector2( 103, 57 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="base" type="NinePatchRect" parent="HUD/power_up_bar"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -86.5
+margin_top = -12.0
+margin_right = 86.5
+margin_bottom = 12.0
 texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 100, 100 )
 patch_margin_left = 3
@@ -190,12 +210,15 @@ patch_margin_top = 10
 patch_margin_right = 5
 patch_margin_bottom = 4
 
-[node name="bar" type="NinePatchRect" parent="power_up_bar"]
-margin_left = 152.0
-margin_top = 61.0
-margin_right = 318.0
-margin_bottom = 81.0
+[node name="bar" type="NinePatchRect" parent="HUD/power_up_bar"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -86.0
+margin_top = -10.0
+margin_right = 85.0
+margin_bottom = 10.0
 texture = ExtResource( 12 )
-region_rect = Rect2( 0, 0, 187.25, 45.25 )
+region_rect = Rect2( 0, 0, 90, 90 )
 patch_margin_left = 4
 patch_margin_top = 5
