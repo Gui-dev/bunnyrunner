@@ -92,7 +92,17 @@ func flying(delta: float) -> void:
     $wings/animation.play('flap')
     _jump(400, false)
     $flap.play()
+    
+  if is_on_floor():
+    get_tree().call_group('power_up_bar', 'stop')
+    power_up_finished()
 
 func victory() -> void:
   $sprite.play('victory')
   status = VICTORY
+  
+func power_up_finished() -> void:
+  if status != DEAD:
+    status = RUNNING
+    $wings.visible = false
+    
