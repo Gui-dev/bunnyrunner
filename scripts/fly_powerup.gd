@@ -10,4 +10,3 @@ func _ready() -> void:
 func _on_fly_powerup_body_entered(body: Node) -> void:
   get_tree().call_group('power_up_bar', 'start', time)
   body.fly()
-  print('FLY: ', body)
