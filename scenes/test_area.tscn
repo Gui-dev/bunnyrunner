@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/coil.tscn" type="PackedScene" id=2]
@@ -11,14 +11,8 @@
 [ext_resource path="res://scenes/parallax_blue.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scripts/parallax.gd" type="Script" id=10]
 [ext_resource path="res://scenes/carrot.tscn" type="PackedScene" id=11]
-[ext_resource path="res://sprites/HUD/coin_gold.png" type="Texture" id=12]
-[ext_resource path="res://fonts/Chocolate Bar Demo.otf" type="DynamicFontData" id=13]
-[ext_resource path="res://scripts/coin_count.gd" type="Script" id=14]
-
-[sub_resource type="DynamicFont" id=1]
-size = 60
-outline_color = Color( 1, 0.8, 0, 1 )
-font_data = ExtResource( 13 )
+[ext_resource path="res://scenes/coin_count.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/spikes.tscn" type="PackedScene" id=13]
 
 [node name="test_area" type="Node2D"]
 
@@ -228,20 +222,6 @@ position = Vector2( 4171, 584 )
 [node name="power_up_bar" parent="HUD" instance=ExtResource( 8 )]
 position = Vector2( 641, 45 )
 
-[node name="coin_count" type="Node2D" parent="HUD"]
-script = ExtResource( 14 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="coin_count" parent="HUD" instance=ExtResource( 12 )]
 
-[node name="coin_gold" type="Sprite" parent="HUD/coin_count"]
-position = Vector2( 49, 40 )
-texture = ExtResource( 12 )
-
-[node name="coins" type="Label" parent="HUD/coin_count"]
-margin_left = 87.0
-margin_top = 7.0
-margin_right = 154.0
-margin_bottom = 73.0
-custom_fonts/font = SubResource( 1 )
-text = "0"
+[node name="spikes" parent="." instance=ExtResource( 13 )]
