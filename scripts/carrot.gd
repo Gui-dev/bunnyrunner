@@ -7,3 +7,7 @@ func _ready() -> void:
 
 func _on_carrot_body_entered(body: Node) -> void:
  body.victory()
+
+
+func _on_deadzone_body_entered(body: Node) -> void:
+ body.killed()
