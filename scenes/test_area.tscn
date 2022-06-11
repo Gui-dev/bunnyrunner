@@ -225,3 +225,4 @@ position = Vector2( 641, 45 )
 [node name="coin_count" parent="HUD" instance=ExtResource( 12 )]
 
 [node name="spikes" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1121, 715 )
