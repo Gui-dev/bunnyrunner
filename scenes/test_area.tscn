@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/coil.tscn" type="PackedScene" id=2]
@@ -7,11 +7,9 @@
 [ext_resource path="res://scripts/big_platform.gd" type="Script" id=5]
 [ext_resource path="res://scenes/wingman.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/fly_powerup.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/power_up_bar.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/parallax_blue.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scripts/parallax.gd" type="Script" id=10]
 [ext_resource path="res://scenes/carrot.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/coin_count.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/spikes.tscn" type="PackedScene" id=13]
 
 [node name="test_area" type="Node2D"]
@@ -216,13 +214,6 @@ modulate_layer_4 = Color( 0.133333, 0.776471, 0.0980392, 1 )
 
 [node name="carrot" parent="." instance=ExtResource( 11 )]
 position = Vector2( 4171, 584 )
-
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="power_up_bar" parent="HUD" instance=ExtResource( 8 )]
-position = Vector2( 641, 45 )
-
-[node name="coin_count" parent="HUD" instance=ExtResource( 12 )]
 
 [node name="spikes" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1121, 715 )
