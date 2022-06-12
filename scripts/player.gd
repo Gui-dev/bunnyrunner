@@ -76,6 +76,9 @@ func dead(delta: float) -> void:
   $sprite.play('hurt')
   translate((velocity * delta))
   velocity.y += GRAVITY * delta
+  
+  if global_position.y > display_size + 200:
+    get_tree().call_group('game', 'player_died')
 
 func fly() -> void:
   $sprite.play('jump')
@@ -100,6 +103,7 @@ func flying(delta: float) -> void:
 func victory() -> void:
   $sprite.play('victory')
   status = VICTORY
+  get_tree().call_group('game', 'player_victory')
   
 func power_up_finished() -> void:
   if status != DEAD:
