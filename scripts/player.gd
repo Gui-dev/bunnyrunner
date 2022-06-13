@@ -12,10 +12,12 @@ onready var mask = collision_mask
 onready var layer = collision_layer
 
 enum {IDLE, RUNNING, FLYING, DEAD, VICTORY}
-var status = RUNNING
+var status = IDLE
 var display_size = ProjectSettings.get_setting('display/window/size/height')
 
 func _ready() -> void:
+  add_to_group('player')
+  $sprite.play('idle')
   set_process_input(true)
 
 func _physics_process(delta: float) -> void:
@@ -32,6 +34,9 @@ func _physics_process(delta: float) -> void:
   
   jump = false
   jump_release = false
+
+func start():
+  status = RUNNING
 
 func running(delta: float) -> void:
   velocity.y += GRAVITY * delta
@@ -71,6 +76,7 @@ func killed() -> void:
     layer = 0
     velocity = Vector2(0, -1000)
     $dead.play()
+    get_tree().call_group('power_up_bar', 'stop')
 
 func dead(delta: float) -> void:
   $sprite.play('hurt')
