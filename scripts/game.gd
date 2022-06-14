@@ -44,6 +44,9 @@ func stage_exit():
   status = MENU
 
 func player_victory():
+  $audio_victory.play()
+  var timer = get_tree().create_timer(4)
+  yield(timer, 'timeout')
   stage_exit()
 
 

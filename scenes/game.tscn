@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/stage_button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/coin_count.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/power_up_bar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fonts/Chocolate Bar Demo.otf" type="DynamicFontData" id=5]
 [ext_resource path="res://ui/cross.png" type="Texture" id=6]
+[ext_resource path="res://music/victory.ogg" type="AudioStream" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 350
@@ -78,6 +79,8 @@ margin_right = 1267.0
 margin_bottom = 762.0
 
 [node name="stage_button" parent="interface/stage_buttons" instance=ExtResource( 1 )]
+margin_right = 200.0
+margin_bottom = 40.0
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -112,5 +115,8 @@ margin_bottom = 124.0
 texture_normal = ExtResource( 6 )
 expand = true
 stretch_mode = 3
+
+[node name="audio_victory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
 
 [connection signal="pressed" from="HUD/stage_exit" to="." method="_on_stage_exit_pressed"]
