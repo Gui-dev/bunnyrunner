@@ -9,6 +9,7 @@ var reference_stage
 
 func _ready() -> void:
   $HUD/countdown.visible = false
+  $HUD/stage_exit.visible = false
   add_to_group('game')
 
 func stage_selected(button: Button) -> void:
@@ -26,6 +27,7 @@ func load_stage():
   loaded_stage = load(current_stage).instance()
   reference_stage = weakref(loaded_stage)
   add_child(loaded_stage)
+  $HUD/stage_exit.visible = true
   $HUD/countdown/animation.play('countdown')
   yield($HUD/countdown/animation, 'animation_finished')
   get_tree().call_group('player', 'start')
@@ -33,8 +35,17 @@ func load_stage():
 func player_died():
   load_stage()
 
-func player_victory():
+func stage_exit():
   loaded_stage.queue_free()
   $interface.visible = true
   $HUD/controls.visible = false
+  $HUD/stage_exit.visible = false
+  $HUD/countdown.visible = false
   status = MENU
+
+func player_victory():
+  stage_exit()
+
+
+func _on_stage_exit_pressed() -> void:
+  stage_exit()

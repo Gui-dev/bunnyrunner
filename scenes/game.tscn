@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/stage_button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/coin_count.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/game.gd" type="Script" id=3]
 [ext_resource path="res://scenes/power_up_bar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fonts/Chocolate Bar Demo.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://ui/cross.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 350
@@ -102,3 +103,14 @@ text = "3"
 [node name="animation" type="AnimationPlayer" parent="HUD/countdown"]
 anims/RESET = SubResource( 2 )
 anims/countdown = SubResource( 3 )
+
+[node name="stage_exit" type="TextureButton" parent="HUD"]
+margin_left = 1789.0
+margin_top = 3.0
+margin_right = 1915.0
+margin_bottom = 124.0
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 3
+
+[connection signal="pressed" from="HUD/stage_exit" to="." method="_on_stage_exit_pressed"]
