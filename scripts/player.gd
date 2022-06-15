@@ -77,6 +77,7 @@ func killed() -> void:
     velocity = Vector2(0, -1000)
     $dead.play()
     get_tree().call_group('power_up_bar', 'stop')
+    get_tree().call_group('game', 'player_dying')
 
 func dead(delta: float) -> void:
   $sprite.play('hurt')

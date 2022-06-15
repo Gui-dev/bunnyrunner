@@ -77,10 +77,14 @@ margin_left = 255.0
 margin_top = 68.0
 margin_right = 1267.0
 margin_bottom = 762.0
+columns = 4
 
 [node name="stage_button" parent="interface/stage_buttons" instance=ExtResource( 1 )]
+anchor_left = -0.000988142
+anchor_right = -0.000988142
 margin_right = 200.0
-margin_bottom = 40.0
+margin_bottom = 60.0
+music = "res://music/happy.ogg"
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -118,5 +122,7 @@ stretch_mode = 3
 
 [node name="audio_victory" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+
+[node name="music" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="HUD/stage_exit" to="." method="_on_stage_exit_pressed"]
