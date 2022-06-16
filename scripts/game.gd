@@ -7,6 +7,7 @@ var current_stage
 var current_music
 var loaded_stage
 var reference_stage
+var stage_coins
 
 func _ready() -> void:
   $HUD/countdown.visible = false
@@ -24,6 +25,8 @@ func stage_selected(button: Button) -> void:
     status = LOADED
 
 func load_stage():
+  stage_coins = 0
+  $HUD/controls/coin_count.coins = 0
   if loaded_stage != null && reference_stage.get_ref() != null:
     loaded_stage.queue_free()
   loaded_stage = load(current_stage).instance()
@@ -41,6 +44,7 @@ func load_stage():
 
 func player_died():
   load_stage()
+  stop_music()
 
 func stage_exit():
   loaded_stage.queue_free()
@@ -57,6 +61,7 @@ func player_victory():
   var timer = get_tree().create_timer(4)
   yield(timer, 'timeout')
   stage_exit()
+  print('COINS: ', float($HUD/controls/coin_count.coins) / float(stage_coins))
 
 func player_dying() -> void:
   stop_music()
@@ -67,6 +72,9 @@ func play_music() -> void:
     
 func stop_music() -> void:
   $music.stop()
+
+func add_stage_coins() -> void:
+  stage_coins += 1
 
 func _on_stage_exit_pressed() -> void:
   stage_exit()

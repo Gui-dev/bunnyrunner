@@ -80,10 +80,8 @@ margin_bottom = 762.0
 columns = 4
 
 [node name="stage_button" parent="interface/stage_buttons" instance=ExtResource( 1 )]
-anchor_left = -0.000988142
-anchor_right = -0.000988142
 margin_right = 200.0
-margin_bottom = 60.0
+margin_bottom = 50.0
 music = "res://music/happy.ogg"
 
 [node name="HUD" type="CanvasLayer" parent="."]

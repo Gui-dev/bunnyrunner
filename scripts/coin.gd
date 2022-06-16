@@ -1,7 +1,7 @@
 extends Area2D
 
 func _ready() -> void:
-  pass # Replace with function body.
+  get_tree().call_group('game', 'add_stage_coins')
 
 
 func _on_coin_body_entered(_body: Node) -> void:
