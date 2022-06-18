@@ -4,7 +4,7 @@ extends Node2D
 signal carrots_finished
 
 func _ready() -> void:
-  play(3)
+  pass
 
 func play(carrots) -> void:
   carrots = clamp(carrots, 0, 3)

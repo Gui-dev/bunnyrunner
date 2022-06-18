@@ -1,6 +1,8 @@
 extends Node2D
 
 
+var pre_golden_carrots = preload('res://scenes/golden_carrots.tscn')
+var golden_carrots
 var prize_carrots = [
   {
     average = .3,
@@ -15,6 +17,7 @@ var prize_carrots = [
     prize = 3
   }   
 ]
+
 enum {MENU, LOADING, LOADED}
 var status = MENU
 var current_stage
@@ -68,13 +71,13 @@ func stage_exit():
   $HUD/countdown.visible = false
   status = MENU
   stop_music()
+  
+  if golden_carrots != null and weakref(golden_carrots):
+    golden_carrots.queue_free()
 
 func player_victory():
   stop_music()
   $audio_victory.play()
-  var timer = get_tree().create_timer(4)
-  yield(timer, 'timeout')
-  stage_exit()
   var average = float($HUD/controls/coin_count.coins) / float(stage_coins)
   var prize = 0
   
@@ -82,7 +85,14 @@ func player_victory():
     if average >= prizes.average:
       prize = prizes.prize
       
-  print('prize: ' + str(prize))
+  golden_carrots = pre_golden_carrots.instance()
+  $HUD.add_child(golden_carrots)
+  golden_carrots.play(prize)
+  yield(golden_carrots, 'carrots_finished')
+  
+  var timer = get_tree().create_timer(4)
+  yield(timer, 'timeout')
+  stage_exit()
 
 func player_dying() -> void:
   stop_music()
