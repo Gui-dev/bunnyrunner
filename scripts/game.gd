@@ -1,6 +1,20 @@
 extends Node2D
 
 
+var prize_carrots = [
+  {
+    average = .3,
+    prize = 1
+   },
+  {
+    average = .7,
+    prize = 2
+  },
+  {
+    average = 1,
+    prize = 3
+  }   
+]
 enum {MENU, LOADING, LOADED}
 var status = MENU
 var current_stage
@@ -61,7 +75,14 @@ func player_victory():
   var timer = get_tree().create_timer(4)
   yield(timer, 'timeout')
   stage_exit()
-  print('COINS: ', float($HUD/controls/coin_count.coins) / float(stage_coins))
+  var average = float($HUD/controls/coin_count.coins) / float(stage_coins)
+  var prize = 0
+  
+  for prizes in prize_carrots:
+    if average >= prizes.average:
+      prize = prizes.prize
+      
+  print('prize: ' + str(prize))
 
 func player_dying() -> void:
   stop_music()
