@@ -2,6 +2,7 @@ extends Button
 
 export(String, FILE) var stage
 export(String, FILE) var music
+export(String) var stage_name = 'stage-00'
 
 func _ready() -> void:
   pass

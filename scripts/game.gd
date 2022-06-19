@@ -21,6 +21,7 @@ var prize_carrots = [
 enum {MENU, LOADING, LOADED}
 var status = MENU
 var current_stage
+var current_stage_name
 var current_music
 var loaded_stage
 var reference_stage
@@ -35,6 +36,7 @@ func stage_selected(button: Button) -> void:
   if status == MENU:
     status = LOADING
     current_stage = button.stage
+    current_stage_name = button.stage_name
     current_music = button.music
     $interface.visible = false
     load_stage()
@@ -85,6 +87,7 @@ func player_victory():
     if average >= prizes.average:
       prize = prizes.prize
       
+  GameData.save_prize(current_stage_name, prize)
   golden_carrots = pre_golden_carrots.instance()
   $HUD.add_child(golden_carrots)
   golden_carrots.play(prize)
